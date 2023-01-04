@@ -1,0 +1,20 @@
+{
+  "name": "postcss-doodle",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "css-doodle": "^0.32.0",
+    "postcss": "^8.4.20",
+    "postcss-value-parser": "^4.2.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}
