@@ -9,7 +9,7 @@
     "postcss": "^8.4.20",
     "postcss-value-parser": "^4.2.0"
   },
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "src/index.js",
   "exports": {
     ".": {
