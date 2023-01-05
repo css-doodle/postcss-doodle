@@ -1,29 +1,40 @@
 import { svg, shape } from 'css-doodle/generator';
 import valueParser from 'postcss-value-parser';
 
+const KEYWORDS = ['@svg', '@shape'];
+
 export default function plugin() {
   return {
     postcssPlugin: "postcss-doodle",
     Declaration(decl) {
-      let parsed = valueParser(decl.value);
-      for (let node of parsed.nodes) {
-        if (node.type === 'function' && isKeyword(node.value)) {
-          let { result, args } = getInput(node.nodes);
-          node.type = 'word'
-          if (node.value === '@svg') {
-            node.value = wrapSVG(svg(result));
-          }
-          if (node.value === '@shape') {
-            node.value = shape(...args);
-          }
-        }
+      try {
+        let parsed = valueParser(decl.value);
+        parsed.nodes = transformNodes(parsed.nodes);
+        decl.value = parsed.toString();
+      } catch (e) {
+        // fail silently
       }
-      decl.value = parsed.toString();
     }
   }
 }
 
 plugin.postcss = true;
+
+function transformNodes(nodes) {
+  return nodes.map(node => {
+    if (node.type === 'function' && KEYWORDS.includes(node.value)) {
+      const { result, args } = getInput(node.nodes);
+      node.type = 'word';
+      if (node.value === '@svg') {
+        node.value = wrapSVG(svg(result));
+      }
+      if (node.value === '@shape') {
+        node.value = shape(...args);
+      }
+    }
+    return node;
+  });
+}
 
 function getInput(nodes) {
   let result = '', argResult = '';
@@ -34,7 +45,7 @@ function getInput(nodes) {
       let value = `${node.value}(${getInput(node.nodes).result})`;
       result += value;
       argResult += value;
-    } else  {
+    } else {
       if (node.type === 'div' && node.value === ',') {
         args.push(argResult);
         argResult = '';
@@ -48,10 +59,6 @@ function getInput(nodes) {
     args.push(argResult);
   }
   return { result, args };
-}
-
-function isKeyword(name) {
-  return name === '@svg' || name === '@shape';
 }
 
 function wrapSVG(input) {
