@@ -1,10 +1,9 @@
 # postcss-doodle
 
 ![Build Status](https://github.com/css-doodle/postcss-doodle/actions/workflows/ci.yml/badge.svg)
-![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+![License](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-
-[PostCSS] plugin to use generators from [css-doodle] with the same syntax.
+[PostCSS] plugin that enables the use of css-doodle generators.
 
 [PostCSS]: https://github.com/postcss/postcss
 [css-doodle]: https://github.com/css-doodle
@@ -25,7 +24,7 @@ postcss([ require('postcss-doodle') ])
 ```
 
 
-## Supported functions
+## Supported generators
 
 ### [@svg]
 
