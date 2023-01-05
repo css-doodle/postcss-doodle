@@ -1,15 +1,11 @@
 {
   "name": "postcss-doodle",
+  "version": "0.1.0",
+  "description": "PostCSS plugin that enables the use of css-doodle generators",
   "type": "module",
   "scripts": {
     "test": "node --test test/*.test.js"
   },
-  "devDependencies": {
-    "css-doodle": "^0.32.1",
-    "postcss": "^8.4.20",
-    "postcss-value-parser": "^4.2.0"
-  },
-  "version": "0.1.0",
   "main": "src/index.js",
   "exports": {
     ".": {
@@ -19,10 +15,19 @@
     },
     "./package.json": "./package.json"
   },
-  "directories": {
-    "test": "test"
+  "devDependencies": {
+    "css-doodle": "^0.32.1",
+    "postcss": "^8.4.20",
+    "postcss-value-parser": "^4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/css-doodle/postcss-doodle.git"
+  },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/css-doodle"
   },
   "author": "yuanchuan",
-  "license": "MIT",
-  "description": "PostCSS plugin that enables the use of css-doodle generators"
+  "license": "MIT"
 }
