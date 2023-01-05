@@ -20,7 +20,9 @@ npm i -D postcss-doodle
 ## Usage
 
 ```js
-postcss([ require('postcss-doodle') ])
+postcss([
+  require('postcss-doodle')
+])
 ```
 
 
