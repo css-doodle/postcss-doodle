@@ -1,6 +1,6 @@
 import assert from 'assert';
 import postcss from 'postcss';
-import plugin from '../index.js';
+import plugin from '../src/index.js';
 
 async function render(input) {
   const { css } = await postcss()

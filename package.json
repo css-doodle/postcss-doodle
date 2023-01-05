@@ -9,12 +9,20 @@
     "postcss": "^8.4.20",
     "postcss-value-parser": "^4.2.0"
   },
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.cjs",
+      "default": "./src/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
   "directories": {
     "test": "test"
   },
-  "author": "",
+  "author": "yuanchuan",
   "license": "MIT",
-  "description": ""
+  "description": "PostCSS plugin to use generators from css-doodle with the same syntax"
 }
