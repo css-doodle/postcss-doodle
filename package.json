@@ -15,7 +15,7 @@
     },
     "./package.json": "./package.json"
   },
-  "devDependencies": {
+  "dependencies": {
     "css-doodle": "^0.32.1",
     "postcss": "^8.4.20",
     "postcss-value-parser": "^4.2.0"
