@@ -1,6 +1,6 @@
 {
   "name": "postcss-doodle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PostCSS plugin that enables the use of css-doodle generators",
   "type": "module",
   "scripts": {
@@ -16,9 +16,11 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "css-doodle": "^0.32.1",
     "postcss": "^8.4.20",
     "postcss-value-parser": "^4.2.0"
+  },
+  "peerDependencies": {
+    "css-doodle": ">= 0.30.0"
   },
   "repository": {
     "type": "git",
